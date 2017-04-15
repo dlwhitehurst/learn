@@ -1,13 +1,10 @@
 pipeline {
-  agent any
+    agent { docker 'maven:3.3.3' }
     stages {
-      stage('build') {
-        steps {
-            sh 'eval $(docker-machine env default --shell bash)'
-            sh 'docker run maven:3.3.3'
-            sh 'mvn --version'
-            echo 'Hello World'
+        stage('build') {
+            steps {
+                sh 'mvn --version'
+            }
         }
-      }
     }
 }
