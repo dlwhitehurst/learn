@@ -1,5 +1,5 @@
 pipeline {
-  sh '@FOR /f "tokens=*" %i IN ('docker-machine env') DO @%i'
+  sh 'docker-machine create -d virtualbox default'
   agent { docker 'maven:3.3.3' }
     stages {
       stage('build') {
