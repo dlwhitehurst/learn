@@ -1,5 +1,5 @@
 pipeline {
-  agent { docker 'maven:3.3.3' }
+  agent { label 'whatever' }
     stages {
       stage('init') {
         steps {
@@ -8,6 +8,7 @@ pipeline {
         }
       }
       stage('build') {
+        agent { docker 'maven:3.3.3' }
         steps {
           sh 'mvn --version'
         }
