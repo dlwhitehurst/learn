@@ -1,9 +1,9 @@
 pipeline {
-    agent { docker 'maven:3.3.3' }
+    agent any
     stages {
         stage('build') {
             steps {
-                timeout(time: 10, unit: 'MINUTES') {
+                  echo 'Obtaining Maven version now.'
                   sh 'mvn --version'
                 }
             }
